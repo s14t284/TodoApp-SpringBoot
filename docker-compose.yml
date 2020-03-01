@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: tododb
+    environment:
+      MYSQL_DATABASE: tododb
+      MYSQL_ROOT_USER: root
+      MYSQL_ROOT_PASSWORD: root
+    restart: always
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --default-authentication-plugin=mysql_native_password
+    expose:
+      - "33060"
+    ports:
+      - "33060:3306"
+  web:
+    image: maven:3.5-jdk-11
+    command: mvn clean spring-boot:run
+    working_dir: /app
+    volumes:
+      - ./:/app
+      - ./.mvn:/root/.mvn
+    expose:
+      - "8080"
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
