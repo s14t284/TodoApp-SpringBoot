@@ -16,4 +16,8 @@
   <insert id="addTodo" parameterType="work.rikeda.todo.domains.Todo">
     INSERT INTO todo(task, state, rimit_date) VALUES (#{task}, #{state}, #{rimitDate})
   </insert>
+
+  <update id="completeTodo" parameterType="work.rikeda.todo.domains.Todo">
+    UPDATE todo SET state = 1 WHERE id = #{id}
+  </update>
 </mapper>

@@ -21,7 +21,7 @@
 
     <div class="card">
       <div class="card-body">
-        <form method="post" action="#" th:action="@{/api/add}" th:object="${todoForm}">
+        <form action="#" method="post" th:action="@{/api/add}" th:object="${todoForm}">
           <div class="form-group">
             <label for="title">タイトル</label>
             <input class="form-control" type="text" id="title" name="title" th:field="*{task}"/>

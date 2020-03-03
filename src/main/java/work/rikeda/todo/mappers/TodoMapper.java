@@ -1,6 +1,5 @@
 package work.rikeda.todo.mappers;
 
-import java.util.Date;
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import work.rikeda.todo.domains.Todo;
@@ -9,4 +8,5 @@ import work.rikeda.todo.domains.Todo;
 public interface TodoMapper {
   public List<Todo> getAll();
   public void addTodo(Todo todo);
+  public void completeTodo(int id);
 }

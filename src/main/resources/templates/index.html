@@ -29,23 +29,21 @@
       </tr>
       </thead>
       <tbody>
-      <tr th:each="todo : ${todos}">
-        <td class="text-center">
-          <span class="badge badge-pill badge-success" th:if="${todo.state}">
-            完了
-          </span>
-          <span class="badge badge-pill badge-light" th:unless="${todo.state}">
-            未完了
-          </span>
-        </td>
-        <td th:text="${todo.task}"></td>
-        <td class="text-center" th:text="${#dates.format(todo.rimitDate, 'yyyy/MM/dd')}"></td>
-        <td class="text-center">
-          <form action="#" th:unless="${todo.state}">
-            <button class="btn btn-sm btn-primary" type="submit">OK</button>
-          </form>
-          <p th:if="${todo.state}">-</p>
-        </td>
+      <tr th:each="todo : ${todos}" id="todo">
+        <div th:id="${todo.id}">
+          <td class="text-center">
+            <span class="badge badge-pill badge-success" th:if="${todo.state}">完了</span>
+            <span class="badge badge-pill badge-light" th:unless="${todo.state}">未完了</span>
+          </td>
+          <td th:text="${todo.task}"></td>
+          <td class="text-center" th:text="${#dates.format(todo.rimitDate, 'yyyy/MM/dd')}"></td>
+          <td class="text-center">
+            <form action="*" method="post" th:unless="${todo.state}" th:action="@{/api/complete/{id}(id=*{todo.id})}">
+              <button class="btn btn-sm btn-primary" type="submit">OK</button>
+            </form>
+            <p th:if="${todo.state}">-</p>
+          </td>
+        </div>
       </tr>
       </tbody>
     </table>

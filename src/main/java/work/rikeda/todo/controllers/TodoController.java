@@ -1,14 +1,13 @@
 package work.rikeda.todo.controllers;
 
-import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import work.rikeda.todo.domains.Todo;
 import work.rikeda.todo.forms.TodoForm;
 import work.rikeda.todo.mappers.TodoMapper;
@@ -40,6 +39,12 @@ public class TodoController {
   public String add(@ModelAttribute TodoForm todoForm) {
     Todo todo = new Todo(todoForm.getTask(), todoForm.getRimitDate());
     todoMapper.addTodo(todo);
+    return "redirect:/";
+  }
+
+  @PostMapping("/api/complete/{id}")
+  public String complete(@PathVariable int id) {
+    todoMapper.completeTodo(id);
     return "redirect:/";
   }
 
