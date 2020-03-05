@@ -6,25 +6,25 @@ public class Todo {
   private int id;
   private String task;
   private boolean state;
-  private Date rimitDate;
+  private Date limitDate;
 
-  public Todo(int id, String task, boolean state, Date rimitDate) {
+  public Todo(int id, String task, boolean state, Date limitDate) {
     this.id = id;
     this.task = task;
     this.state = false;
-    this.rimitDate = rimitDate;
+    this.limitDate = limitDate;
   }
 
-  public Todo(String task, Date rimitDate) {
+  public Todo(String task, Date limitDate) {
     this.task = task;
     this.state = false;
-    this.rimitDate = rimitDate;
+    this.limitDate = limitDate;
   }
 
-  public Todo(String task, boolean state, Date rimitDate) {
+  public Todo(String task, boolean state, Date limitDate) {
     this.task = task;
     this.state = state;
-    this.rimitDate = rimitDate;
+    this.limitDate = limitDate;
   }
 
   public int getId() {
@@ -39,8 +39,8 @@ public class Todo {
     return state;
   }
 
-  public Date getRimitDate() {
-    return rimitDate;
+  public Date getLimitDate() {
+    return limitDate;
   }
 
   public void setTask(String task) {
@@ -51,7 +51,7 @@ public class Todo {
     this.state = state;
   }
 
-  public void setRimitDate(Date rimitDate) {
-    this.rimitDate = rimitDate;
+  public void setLimitDate(Date limitDate) {
+    this.limitDate = limitDate;
   }
 }

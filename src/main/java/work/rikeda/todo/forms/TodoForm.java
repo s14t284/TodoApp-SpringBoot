@@ -14,21 +14,21 @@ public class TodoForm implements Serializable {
 
   @NotNull
   @DateTimeFormat(pattern = "yyyy-MM-dd")
-  private Date rimitDate;
+  private Date limitDate;
 
   public String getTask() {
     return task;
   }
 
-  public Date getRimitDate() {
-    return rimitDate;
+  public Date getLimitDate() {
+    return limitDate;
   }
 
   public void setTask(String task) {
     this.task = task;
   }
 
-  public void setRimitDate(Date rimitDate) {
-    this.rimitDate = rimitDate;
+  public void setLimitDate(Date limitDate) {
+    this.limitDate = limitDate;
   }
 }

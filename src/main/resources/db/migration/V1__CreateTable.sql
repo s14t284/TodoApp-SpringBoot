@@ -2,5 +2,5 @@ CREATE TABLE todo (
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
     task VARCHAR(100) NOT NULL,
     state BOOLEAN NOT NULL,
-    rimit_date DATE NOT NULL
+    limit_date DATE NOT NULL
 );

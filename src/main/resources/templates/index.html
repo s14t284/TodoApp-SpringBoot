@@ -36,7 +36,7 @@
             <span class="badge badge-pill badge-light" th:unless="${todo.state}">未完了</span>
           </td>
           <td th:text="${todo.task}"></td>
-          <td class="text-center" th:text="${#dates.format(todo.rimitDate, 'yyyy/MM/dd')}"></td>
+          <td class="text-center" th:text="${#dates.format(todo.limitDate, 'yyyy/MM/dd')}"></td>
           <td class="text-center">
             <form action="*" method="post" th:unless="${todo.state}" th:action="@{/api/complete/{id}(id=*{todo.id})}">
               <button class="btn btn-sm btn-primary" type="submit">OK</button>

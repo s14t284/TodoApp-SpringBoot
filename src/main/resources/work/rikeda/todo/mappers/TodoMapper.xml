@@ -6,7 +6,7 @@
     <result property="id" column="id" />
     <result property="task" column="task" />
     <result property="state" column="state" />
-    <result property="rimitDate" column="rimit_date" />
+    <result property="limitDate" column="limit_date" />
   </resultMap>
 
   <select id="getAll" resultMap="memberResultMap">
@@ -14,7 +14,7 @@
   </select>
 
   <insert id="addTodo" parameterType="work.rikeda.todo.domains.Todo">
-    INSERT INTO todo(task, state, rimit_date) VALUES (#{task}, #{state}, #{rimitDate})
+    INSERT INTO todo(task, state, limit_rate) VALUES (#{task}, #{state}, #{limitDate})
   </insert>
 
   <update id="completeTodo" parameterType="work.rikeda.todo.domains.Todo">
